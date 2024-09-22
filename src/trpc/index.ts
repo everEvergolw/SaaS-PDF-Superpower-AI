@@ -82,7 +82,7 @@ deleteFile: privateProcedure
         },
       })
 
-      return file
+      return file 
     }),
 
 
