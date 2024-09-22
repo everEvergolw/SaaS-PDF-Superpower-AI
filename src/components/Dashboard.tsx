@@ -9,6 +9,10 @@ import { format } from 'date-fns'
 import { Button } from "./ui/button"
 import { useState } from "react"
 
+
+
+
+
 const Dashboard = () => {
 
     const [currentlyDeletingFile, setCurrentlyDeletingFile] = 
@@ -19,7 +23,7 @@ const Dashboard = () => {
     const{ data : files, isLoading } = trpc.getUserFiles.useQuery()
 
     const { mutate: deleteFile } =trpc.deleteFile.useMutation({
-        onSuccess: () => {
+        onSuccess: () => { 
             utils.getUserFiles.invalidate() 
           },
         onMutate({ id }) {
@@ -48,7 +52,7 @@ const Dashboard = () => {
                     My Files
                     </h1>
 
-                    <UploadButton />    
+                    <UploadButton isSubscribed={false} />
 
                 </div>         
 
@@ -106,9 +110,9 @@ const Dashboard = () => {
                                     className='w-full'
                                     variant='destructive'>
                                  {currentlyDeletingFile === file.id ? (
-                                    <Loader2 className='h-4 w-4 animate-spin' />
+                                    <Loader2 className='h-4 w-4 animate-spin' /> 
                                     ) : ( 
-                                    <Trash className='h-4 w-4' /> 
+                                    <Trash className='h-4 w-4' />  
                                     )}
                                 </Button> 
                              </div>
