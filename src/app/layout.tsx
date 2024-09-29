@@ -6,6 +6,7 @@ import Providers from "@/components/Provider";
 
 
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -37,7 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > 
-        
+        <Toaster/>
         <Navbar />  
 
         {children} 
