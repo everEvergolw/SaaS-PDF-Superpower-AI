@@ -40,7 +40,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
     number | null
   >(null)
 
-  const isLoading = renderedScale !== scale
+  const isLoading = renderedScale !== scale 
 
   const CustomPageValidator = z.object({
     page: z
@@ -170,6 +170,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           </Button>
 
           <PdfFullscreen fileUrl={url} />
+
         </div>
       </div>
 
@@ -207,19 +208,20 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               ) : null}
 
               <Page
+
                 className={cn(isLoading ? 'hidden' : '')}
                 width={width ? width : 1}
                 pageNumber={currPage}
                 scale={scale}
                 rotate={rotation}
-                key={'@' + scale}
+                key={'@' + scale} 
                 loading={
                   <div className='flex justify-center'>
                     <Loader2 className='my-24 h-6 w-6 animate-spin' />
                   </div>
                 }
                 onRenderSuccess={() =>
-                  setRenderedScale(scale)
+                  setRenderedScale(scale) 
                 }
               />
             </Document>

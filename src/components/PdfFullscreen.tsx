@@ -31,6 +31,7 @@ const PdfFullscreen = ({ fileUrl }: PdfFullscreenProps) => {
           setIsOpen(v)
         }
       }}>
+
       <DialogTrigger
         onClick={() => setIsOpen(true)}
         asChild>
@@ -43,9 +44,11 @@ const PdfFullscreen = ({ fileUrl }: PdfFullscreenProps) => {
       </DialogTrigger>
 
       <DialogContent className='max-w-7xl w-full'>
+
         <SimpleBar
           autoHide={false}
           className='max-h-[calc(100vh-10rem)] mt-6'>
+
           <div ref={ref}>
             <Document
               loading={
@@ -59,23 +62,29 @@ const PdfFullscreen = ({ fileUrl }: PdfFullscreenProps) => {
                   description: 'Please try again later',
                   variant: 'destructive',
                 })
-              }}
+              }} 
               onLoadSuccess={({ numPages }) =>
                 setNumPages(numPages)
               }
+
               file={fileUrl}
+
               className='max-h-full'>
+
               {new Array(numPages).fill(0).map((_, i) => (
-                <Page
+                <Page 
                   key={i}
                   width={width ? width : 1}
                   pageNumber={i + 1}
                 />
+                
               ))}
+
             </Document>
           </div>
+
         </SimpleBar>
-        
+
       </DialogContent>
     </Dialog>
   )
