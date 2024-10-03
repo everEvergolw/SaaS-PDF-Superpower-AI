@@ -7,6 +7,7 @@ import Messages from './Messages'
 import ChatInput from './ChatInput'
 import { trpc } from '@/app/_trpc/client'
 import { ChevronLeft, Loader2, XCircle } from 'lucide-react'
+import { buttonVariants } from '../ui/button'
 interface ChatWrapperProps {
   fileId: string
   isSubscribed: boolean
@@ -77,7 +78,7 @@ function ChatWrapper({
         <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
           <div className='flex-1 flex justify-center items-center flex-col mb-28'>
             <div className='flex flex-col items-center gap-2'>
-              <XCircle className='h-8 w-8 text-red-500' />
+              <XCircle className='h-8 w-8 text-red-500' /> 
               <h3 className='font-semibold text-xl'>
                 Too many pages in PDF
               </h3>
@@ -92,8 +93,12 @@ function ChatWrapper({
               </p>
               <Link
                 href='/dashboard'
-                >
-                <ChevronLeft className='h-3 w-3 mr-1.5' />
+                className={buttonVariants({
+                  variant: 'secondary',
+                  className: 'mt-4',
+                })}>
+                
+                <ChevronLeft className='h-3 w-3 mr-1.5' /> 
                 Back
               </Link>
             </div>
@@ -103,6 +108,7 @@ function ChatWrapper({
         </div>
       )
 
+      
 
 
     return (
