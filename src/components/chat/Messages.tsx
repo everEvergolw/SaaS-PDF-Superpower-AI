@@ -12,6 +12,7 @@ interface MessagesProps {
   }
 
 const Messages = ({ fileId }: MessagesProps) => {
+
   const { isLoading: isAiThinking } =
     useContext(ChatContext)
     
@@ -72,7 +73,7 @@ const Messages = ({ fileId }: MessagesProps) => {
           if (i === combinedMessages.length - 1) {
             return (
               <Message
-              ref={ref}
+              ref={ref} 
               message={message}
               isNextMessageSamePerson={
                 isNextMessageSamePerson
