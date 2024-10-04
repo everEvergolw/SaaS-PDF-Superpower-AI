@@ -90,6 +90,8 @@ export const POST = async (req: NextRequest) => {
           content: msg.text,
         }))
 
+        
+
         const response = await openai.chat.completions.create({
           model: 'gpt-3.5-turbo',
           temperature: 0,
@@ -137,6 +139,8 @@ export const POST = async (req: NextRequest) => {
             })
           },
         })
+
+        //just returned stream from here, now accept in the context
       
         return new StreamingTextResponse(stream)
 
