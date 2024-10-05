@@ -125,10 +125,13 @@ export const POST = async (req: NextRequest) => {
           ],
         }) 
 
+        console.log(response)
       
 
         const stream = OpenAIStream(response, {
+
           async onCompletion(completion) {
+            // 等待整个 completion 完成后再保存
             await db.message.create({
               data: {
                 text: completion,
@@ -136,13 +139,13 @@ export const POST = async (req: NextRequest) => {
                 fileId,
                 userId,
               },
-            })
+            });
           },
-        })
-
-        //just returned stream from here, now accept in the context
-      
-        return new StreamingTextResponse(stream)
+        });
+        
+        // 返回完整的 StreamingTextResponse
+        return new StreamingTextResponse(stream);
+        
 
 
      
