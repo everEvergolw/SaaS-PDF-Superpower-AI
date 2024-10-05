@@ -65,10 +65,8 @@ export const appRouter = router({
 }),
 
 
-createStripeSession: privateProcedure.mutation( 
-
-  async ({ ctx }) => { 
-
+createStripeSession: privateProcedure.mutation(
+  async ({ ctx }) => {
     const { userId } = ctx
 
     const billingUrl = absoluteUrl('/dashboard/billing')
@@ -92,7 +90,6 @@ createStripeSession: privateProcedure.mutation(
       subscriptionPlan.isSubscribed &&
       dbUser.stripeCustomerId
     ) {
-      
       const stripeSession =
         await stripe.billingPortal.sessions.create({
           customer: dbUser.stripeCustomerId,
