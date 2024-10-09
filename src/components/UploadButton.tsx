@@ -31,8 +31,8 @@ const UploadDropzone = ({
   const { toast } = useToast()
 
   const { startUpload } = useUploadThing(
-    isSubscribed ? 'pdfUploader' : 'pdfUploader'
-  )
+    isSubscribed ? 'proPlanUploader' : 'freePlanUploader'
+  ) 
 
   const { mutate: startPolling } = trpc.getFile.useMutation(
     {
@@ -191,7 +191,7 @@ const UploadButton = ({
       <DialogContent>
         <DialogTitle>Upload PDF</DialogTitle>
 
-        <UploadDropzone isSubscribed={isSubscribed} />
+        <UploadDropzone isSubscribed={isSubscribed} /> 
       </DialogContent>
     </Dialog>
   )

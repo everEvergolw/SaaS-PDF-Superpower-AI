@@ -8,7 +8,8 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
   typescript: true,
 })
 
-export async function getUserSubscriptionPlan() {
+export async function getUserSubscriptionPlan() { 
+  
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 

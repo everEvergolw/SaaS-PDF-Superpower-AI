@@ -8,15 +8,22 @@ import Link from "next/link"
 import { format } from 'date-fns'
 import { Button } from "./ui/button"
 import { useState } from "react"
+import { getUserSubscriptionPlan } from "@/lib/stripe"
 
 
 
 
+interface PageProps {
+    subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
+  }
+  
 
-const Dashboard = () => {
+
+  const Dashboard = ({subscriptionPlan}: PageProps) => {
+
 
     const [currentlyDeletingFile, setCurrentlyDeletingFile] = 
-    useState<string | null>(null)   
+    useState<string | null>(null)    
 
     const utils = trpc.useContext()
 
@@ -52,7 +59,7 @@ const Dashboard = () => {
                     My Files
                     </h1>
 
-                    <UploadButton isSubscribed={false} />
+            <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
 
                 </div>         
 

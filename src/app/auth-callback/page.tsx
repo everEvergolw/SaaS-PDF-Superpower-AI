@@ -23,7 +23,7 @@ const InnerPage = () => {
   }, [data, origin, router]);
 
   useEffect(() => {
-    if (error?.data?.code === 'UNAUTHORIZED') {
+    if (error?.data?.code === 'UNAUTHORIZED') { 
       router.push('/sign-in');
     }
   }, [error, router]);
